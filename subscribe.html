@@ -5,11 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Оформление премиума — ФудСнаппер</title>
-  <meta name="description" content="Тарифы и оформление премиум-подписки в Telegram-боте «ФудСнаппер»." />
+  <meta name="description" content="Тарифы и оформление премиум-доступа в Telegram-боте «ФудСнаппер»." />
   <style>
     :root{
       --bg:#ffffff; --text:#111827; --muted:#6b7280; --border:#e5e7eb;
-      --card:#f9fafb; --primary:#2563eb; --danger:#dc2626; --ok:#16a34a;
+      --card:#f9fafb; --primary:#2563eb; --ok:#16a34a;
       --radius:16px;
     }
     *{box-sizing:border-box}
@@ -51,15 +51,12 @@
     a{color:var(--primary); text-decoration:none;}
     a:hover{text-decoration:underline;}
     .hr{height:1px; background:var(--border); margin:14px 0;}
-    .pay{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
-    }
+    .pay{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
     .pay-btn{
       padding:10px 14px; border-radius:12px; border:1px solid var(--border);
       background:#fff; font-weight:700; text-decoration:none; color:var(--text);
       display:inline-flex; align-items:center; gap:6px;
     }
-    .pay-btn.primary{background:var(--primary); color:#fff; border-color:var(--primary);}
     .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
     .btn{
       appearance:none; border:0; border-radius:14px;
@@ -88,7 +85,7 @@
         <div class="plans">
           <div class="plan">
             <h2>Премиум 30 дней <span class="badge">старт</span></h2>
-            <div class="price">299 ₽ <span class="muted small">или 250 ⭐</span></div>
+            <div class="price">299 ₽</div>
             <div class="muted">
               Самый короткий срок — попробовать премиум-функции на месяц.
             </div>
@@ -96,7 +93,7 @@
 
           <div class="plan">
             <h2>Премиум 90 дней <span class="badge">3 месяца</span></h2>
-            <div class="price">749 ₽ <span class="muted small">(250 ₽/мес) или 625 ⭐</span> <span class="save">−16%</span></div>
+            <div class="price">749 ₽ <span class="muted small">(250 ₽/мес)</span> <span class="save">−16%</span></div>
             <div class="muted">
               Эквивалент 250 ₽/мес — на 16% выгоднее месячного тарифа.
             </div>
@@ -104,9 +101,9 @@
 
           <div class="plan">
             <h2>Премиум 365 дней <span class="badge">год · самый выгодный</span></h2>
-            <div class="price">1990 ₽ <span class="muted small">(164 ₽/мес) или 1660 ⭐</span> <span class="save">−45%</span></div>
+            <div class="price">1990 ₽ <span class="muted small">(164 ₽/мес)</span> <span class="save">−45%</span></div>
             <div class="muted">
-              Меньше 165 ₽ в месяц — на 45% выгоднее месячного. Психологический барьер «под 2 000 ₽».
+              Самый выгодный тариф для тех, кто хочет вести дневник питания регулярно.
             </div>
           </div>
         </div>
@@ -115,44 +112,42 @@
 
         <h2 style="font-size:18px; margin:0 0 8px;">Что входит в премиум</h2>
         <ul>
-          <li>📷 <strong>Фото блюда</strong> — автоматический подсчёт КБЖУ.</li>
-          <li>🎙 <strong>Голосовое сообщение</strong> — наговори, что съел, бот распознает и посчитает.</li>
-          <li>📊 <strong>Адаптивная цель</strong> — каждые 2 недели пересчитываю калораж по твоему реальному весу.</li>
-          <li>💡 <strong>Идеи на остаток дня</strong> — что съесть, чтобы добрать норму белка / не перебрать калории, с учётом нелюбимых продуктов.</li>
-          <li>📅 <strong>Воскресный отчёт</strong> — тренд веса, средние БЖУ за неделю, одна конкретная рекомендация.</li>
+          <li>📷 <strong>Фото блюда</strong> — автоматическая оценка калорийности и БЖУ.</li>
+          <li>🎙 <strong>Голосовое сообщение</strong> — можно наговорить, что вы съели, бот распознает и посчитает.</li>
+          <li>📊 <strong>Адаптивная цель</strong> — пересчёт калоража по динамике веса.</li>
+          <li>💡 <strong>Идеи на остаток дня</strong> — что можно съесть с учётом оставшихся калорий и БЖУ.</li>
+          <li>📅 <strong>Воскресный отчёт</strong> — тренд веса, средние БЖУ за неделю и рекомендация.</li>
         </ul>
 
-        <h2 style="font-size:18px; margin:18px 0 8px;">Бесплатно навсегда</h2>
+        <h2 style="font-size:18px; margin:18px 0 8px;">Бесплатно</h2>
         <ul>
-          <li>⌨️ Запись еды текстом и подсчёт КБЖУ.</li>
+          <li>⌨️ Запись еды текстом и оценка КБЖУ.</li>
           <li>📊 Дневной счётчик и история приёмов пищи.</li>
-          <li>⚖️ Запись веса и графики.</li>
-          <li>❓ Вопросы по сегодняшнему дню («сколько мне ещё съесть на ужин?»).</li>
-          <li>🥦 Учёт пищевых предпочтений (<code>/preferences</code>).</li>
-          <li>✏️ Удаление и правка записей (<code>/edit</code>, <code>/undo</code>).</li>
+          <li>⚖️ Запись веса и отслеживание динамики.</li>
+          <li>🥦 Учёт пищевых предпочтений, если пользователь их указал.</li>
+          <li>✏️ Удаление и правка записей, если функция доступна в боте.</li>
         </ul>
 
         <div class="hr"></div>
 
-        <h2 style="font-size:18px; margin:0 0 8px;">Способы оплаты</h2>
+        <h2 style="font-size:18px; margin:0 0 8px;">Способ оплаты</h2>
         <p class="muted">
-          Оплачивать удобнее всего <strong>прямо в боте</strong>: команда <code>/premium</code> покажет тарифы
-          и предложит две кнопки на каждый план — банковская карта (Robokassa) и ⭐ Telegram Stars.
+          Оплата производится через Robokassa. После подтверждения оплаты премиум-доступ
+          активируется автоматически и действует на выбранный срок.
         </p>
         <div class="pay">
-          <span class="pay-btn">💳 Карта (Robokassa)</span>
-          <span class="pay-btn">⭐ Telegram Stars</span>
+          <span class="pay-btn">💳 Банковская карта через Robokassa</span>
         </div>
 
         <div class="actions">
           <a class="btn btn-primary" href="https://t.me/FoodSnapper_bot?start=premium" target="_blank" rel="noopener">Открыть бот и оформить</a>
-          <a class="btn btn-ghost" href="./cancel.html">Как отменить</a>
+          <a class="btn btn-ghost" href="./cancel.html">Условия отключения премиума</a>
         </div>
 
         <div class="note">
-          После подтверждения оплаты доступ активируется автоматически и действует на выбранный срок.
-          По истечении срока премиум-функции отключаются — бесплатные функции остаются.
-          Автоматических списаний нет: чтобы продлить, оформи новую оплату через бот.
+          По истечении срока премиум-функции отключаются, а бесплатные функции остаются доступными
+          в пределах, установленных сервисом. Автоматических списаний нет: чтобы продлить доступ,
+          нужно оформить новую оплату через бот.
         </div>
       </main>
 
@@ -161,7 +156,7 @@
         <ul>
           <li><a href="offer.html">Публичная оферта</a></li>
           <li><a href="privacy.html">Политика конфиденциальности</a></li>
-          <li><a href="cancel.html">Отмена подписки</a></li>
+          <li><a href="cancel.html">Условия отключения премиума</a></li>
           <li><a href="index.html">Главная страница</a></li>
         </ul>
 
