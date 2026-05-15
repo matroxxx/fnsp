@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ФудСнаппер — счётчик калорий и КБЖУ по фото, голосу и тексту (Telegram-бот)</title>
+  <meta name="description" content="ФудСнаппер — Telegram-бот для подсчёта калорий и КБЖУ. Сфотографируй еду, наговори голосом или напиши текстом — посчитает за секунды. Премиум: фото, голос, адаптивная цель, отчёты. Тарифы, условия, документы, контакты и реквизиты." />
+  <style>
+    :root{
+      --bg:#ffffff; --text:#111827; --muted:#6b7280; --border:#e5e7eb; --link:#2563eb;
+      --card:#f9fafb; --accent:#eef2ff; --accentBorder:#c7d2fe;
+    }
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 64px;}
+    header{padding-bottom:18px;border-bottom:1px solid var(--border);margin-bottom:18px;}
+    h1{font-size:34px;line-height:1.15;margin:0 0 10px;}
+    .sub{margin:0;color:var(--muted);max-width:850px;}
+    h2{font-size:22px;margin:26px 0 10px;}
+    h3{font-size:18px;margin:18px 0 8px;}
+    p{margin:10px 0;}
+    a{color:var(--link);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px;}
+    @media (min-width:860px){ .grid{grid-template-columns:1.2fr .8fr;} }
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;}
+    .hero{background:linear-gradient(180deg,var(--accent),#fff);border:1px solid var(--accentBorder);border-radius:16px;padding:18px 18px;}
+    .btnrow{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;}
+    .btn{
+      display:inline-block;padding:11px 14px;border-radius:12px;border:1px solid var(--border);
+      background:#fff;font-weight:700;
+    }
+    .btn.primary{border-color:var(--accentBorder);background:var(--accent);}
+    .pillrow{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#fff;color:var(--muted);font-size:14px;}
+    ul{margin:8px 0 12px 18px;}
+    li{margin:6px 0;}
+    table{width:100%;border-collapse:collapse;margin-top:8px;}
+    th,td{border:1px solid var(--border);padding:10px;text-align:left;vertical-align:top;}
+    th{background:#f3f4f6;}
+    .muted{color:var(--muted);}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
+    .small{font-size:14px;color:var(--muted);}
+    footer{margin-top:28px;color:var(--muted);font-size:14px;}
+    .hr{height:1px;background:var(--border);margin:22px 0;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="hero">
+        <h1>ФудСнаппер — калории и БЖУ по фото, голосу и тексту</h1>
+        <p class="sub">
+          Бот «ФудСнаппер» помогает вести дневник питания за секунды:
+          <strong>сфотографируй блюдо</strong>, <strong>наговори голосом</strong> или <strong>напиши текстом</strong> — посчитаю калории и БЖУ.
+          Сервис доступен в <strong>Telegram</strong>.
+          <strong>Премиум</strong> открывает фото, голос, адаптивную цель по динамике веса и недельный отчёт.
+        </p>
+
+        <div class="btnrow">
+          <a class="btn primary" href="https://t.me/FoodSnapper_bot" target="_blank" rel="noopener">Открыть Telegram-бота</a>
+          <a class="btn" href="#tariffs">Посмотреть тарифы</a>
+          <a class="btn" href="#docs">Документы</a>
+        </div>
+
+        <div class="pillrow" aria-label="Ключевые преимущества">
+          <span class="pill">📷 Фото блюда → КБЖУ</span>
+          <span class="pill">🎙 Голос: «гречка двести, курица сто»</span>
+          <span class="pill">⌨️ Текстом тоже</span>
+          <span class="pill">📊 Адаптивная цель по факту веса</span>
+          <span class="pill">🇷🇺 РФ + СНГ кухня + бренды</span>
+          <span class="pill">⚡ Бесплатный текст-ввод навсегда</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Как это работает</h2>
+        <ol style="margin:8px 0 12px 18px;">
+          <li>Открой бота: <a href="https://t.me/FoodSnapper_bot" target="_blank" rel="noopener">t.me/FoodSnapper_bot</a></li>
+          <li>За 7 шагов на кнопках расскажи о себе — пол, возраст/рост/вес, цель, темп, активность, число приёмов в день, город. Бот посчитает твою норму калорий и БЖУ.</li>
+          <li>Записывай еду как удобно: <strong>текстом</strong> (бесплатно навсегда), <strong>голосом</strong> или <strong>фото</strong> (премиум).</li>
+          <li>Смотри итог дня, динамику веса, остаток калорий и идеи что съесть на оставшийся бюджет.</li>
+        </ol>
+        <p class="muted">
+          Сервис оказывает <strong>информационно-консультативные услуги</strong> в электронном виде.
+          Подробные условия — в <a href="offer.html">публичной оферте</a>.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Что вы получите</h2>
+        <ul>
+          <li><strong>Точная оценка КБЖУ</strong> — с учётом РФ + СНГ кухни (борщ, оливье, плов, сырники, манты, лагман, шурпа, бешбармак, самса, курт) и упаковок брендов (Вкусвилл, Магнит, Перекрёсток, Додо Пицца, Kinder, Pringles и др.).</li>
+          <li><strong>Адаптивная цель</strong>: каждые 2 недели смотрим на твой реальный вес и подстраиваем дефицит.</li>
+          <li><strong>Идеи на остаток дня</strong> с учётом твоих нелюбимых продуктов.</li>
+          <li><strong>Воскресный отчёт</strong>: тренд веса, средние БЖУ за неделю, одна конкретная рекомендация.</li>
+          <li><strong>Мягкие напоминания</strong> только если правда пропустил приём пищи — без guilt-trip.</li>
+        </ul>
+        <p class="small">
+          Важно: ответы носят информационный характер и не являются медицинскими, диетологическими, юридическими или финансовыми консультациями.
+        </p>
+      </div>
+    </section>
+
+    <section id="tariffs" class="card" style="margin-top:12px;">
+      <h2>Тарифы</h2>
+      <p class="muted">
+        Текст-ввод еды и базовый дневник доступны <strong>бесплатно навсегда</strong>.
+        Премиум-подписка открывает фото-распознавание, голосовые сообщения, адаптивную цель и недельные отчёты.
+        Перед оплатой в боте отображаются актуальные условия.
+      </p>
+
+      <table aria-label="Тарифы ФудСнаппер">
+        <thead>
+          <tr>
+            <th>Тариф</th>
+            <th>Срок действия</th>
+            <th>Стоимость</th>
+            <th>Что включено</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Премиум 30 дней</strong></td>
+            <td>30 дней</td>
+            <td><strong>299 ₽</strong> или <strong>250 ⭐</strong></td>
+            <td>Фото, голос, адаптивная цель, идеи на остаток, недельный отчёт</td>
+          </tr>
+          <tr>
+            <td><strong>Премиум 90 дней</strong></td>
+            <td>90 дней</td>
+            <td><strong>749 ₽</strong> (250 ₽/мес) или <strong>625 ⭐</strong></td>
+            <td>Те же возможности на 3 месяца со скидкой ~16% к месяцу</td>
+          </tr>
+          <tr>
+            <td><strong>Премиум 365 дней</strong></td>
+            <td>365 дней</td>
+            <td><strong>1990 ₽</strong> (164 ₽/мес) или <strong>1660 ⭐</strong></td>
+            <td>Самый выгодный тариф — экономия ~45% к месячному</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="btnrow" style="margin-top:12px;">
+        <a class="btn primary" href="https://t.me/FoodSnapper_bot" target="_blank" rel="noopener">Перейти в бот и оформить премиум</a>
+      </div>
+      <p class="small">
+        Оплата — банковская карта через Robokassa или ⭐ Telegram Stars (на выбор пользователя). После подтверждения оплаты премиум-доступ активируется автоматически. Автоматических списаний нет — оплата разовая на выбранный срок.
+      </p>
+    </section>
+
+    <section class="card" style="margin-top:12px;">
+      <h2>Условия предоставления услуг и возврата</h2>
+      <ul>
+        <li>Услуга предоставляется в электронном виде — доступ к Telegram-боту и его функционалу.</li>
+        <li>Премиум-доступ активируется автоматически после подтверждения оплаты.</li>
+        <li>Автоматических списаний нет: каждый тариф — разовая оплата на выбранный срок. По окончании срока доступ к платным функциям отключается, но бесплатные функции (текст-ввод, дневник, история, вес) остаются.</li>
+        <li>
+          Возврат денежных средств возможен в случаях и порядке, предусмотренных законодательством РФ
+          и <a href="offer.html">публичной офертой</a>.
+        </li>
+        <li>
+          Для оформления обращения по возврату напишите на
+          <a href="mailto:foodsnapper@mail.ru">foodsnapper@mail.ru</a>
+          с указанием даты и суммы платежа.
+        </li>
+        <li>Претензионный порядок обязателен. Срок ответа на претензию — до 10 рабочих дней.</li>
+      </ul>
+    </section>
+
+    <section id="docs" class="card" style="margin-top:12px;">
+      <h2>Документы</h2>
+      <ul>
+        <li><a href="offer.html">Публичная оферта</a></li>
+        <li><a href="privacy.html">Политика конфиденциальности и пользовательское соглашение</a></li>
+        <li><a href="cancel.html">Отмена подписки</a></li>
+      </ul>
+      <p class="small">
+        Оплачивая подписку и используя сервис, вы подтверждаете согласие с условиями оферты и политикой обработки персональных данных.
+      </p>
+    </section>
+
+    <div class="hr"></div>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Контакты</h2>
+        <p>
+          Поддержка (email): <a href="mailto:foodsnapper@mail.ru">foodsnapper@mail.ru</a><br />
+          Telegram-бот: <a href="https://t.me/FoodSnapper_bot" target="_blank" rel="noopener">t.me/FoodSnapper_bot</a>
+        </p>
+        <p class="small">
+          Для вопросов по оплате/возврату укажите дату и сумму платежа, а также (если есть) идентификатор платежа.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Реквизиты</h2>
+        <p>
+          Индивидуальный предприниматель Шамсиев Ринат Альбертович<br />
+          ИНН: <span class="mono">590417211206</span><br />
+          ОГРНИП: <span class="mono">320595800057412</span>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© «ФудСнаппер». Информационно-консультативный онлайн-сервис в формате чат-бота для дневника питания.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
