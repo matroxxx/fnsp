@@ -1,0 +1,192 @@
+<!-- subscribe.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Оформление премиума — ФудСнаппер</title>
+  <meta name="description" content="Тарифы и оформление премиум-подписки в Telegram-боте «ФудСнаппер»." />
+  <style>
+    :root{
+      --bg:#ffffff; --text:#111827; --muted:#6b7280; --border:#e5e7eb;
+      --card:#f9fafb; --primary:#2563eb; --danger:#dc2626; --ok:#16a34a;
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+    .wrap{max-width:920px; margin:0 auto; padding:28px 18px 64px;}
+    header{margin-bottom:18px;}
+    h1{font-size:28px; margin:0 0 8px;}
+    .muted{color:var(--muted);}
+    .grid{display:grid; gap:16px; grid-template-columns: 1.25fr .75fr;}
+    @media (max-width: 860px){.grid{grid-template-columns:1fr;}}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.03);
+    }
+    .plans{display:grid; gap:12px;}
+    .plan{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:14px;
+      background:#fff;
+    }
+    .plan h2{font-size:18px; margin:0 0 6px;}
+    .price{font-size:24px; font-weight:700; margin:4px 0;}
+    .save{display:inline-block; font-size:12px; padding:3px 8px; border-radius:999px;
+          background:#ecfdf5; border:1px solid #a7f3d0; color:#047857; margin-left:8px;}
+    .badge{
+      display:inline-block; font-size:12px; padding:3px 8px; border-radius:999px;
+      border:1px solid var(--border); background:#fff; color:var(--muted);
+      margin-left:8px;
+    }
+    ul{margin:10px 0 0 20px; padding:0;}
+    li{margin:4px 0;}
+    a{color:var(--primary); text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .hr{height:1px; background:var(--border); margin:14px 0;}
+    .pay{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+    }
+    .pay-btn{
+      padding:10px 14px; border-radius:12px; border:1px solid var(--border);
+      background:#fff; font-weight:700; text-decoration:none; color:var(--text);
+      display:inline-flex; align-items:center; gap:6px;
+    }
+    .pay-btn.primary{background:var(--primary); color:#fff; border-color:var(--primary);}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
+    .btn{
+      appearance:none; border:0; border-radius:14px;
+      padding:12px 14px; font-weight:700; cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center;
+      text-decoration:none;
+    }
+    .btn-primary{background:var(--primary); color:#fff;}
+    .btn-ghost{background:#fff; border:1px solid var(--border); color:var(--text);}
+    .note{font-size:14px; color:var(--muted); margin-top:10px;}
+    .small{font-size:13px;}
+    footer{margin-top:18px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Оформление премиума</h1>
+      <div class="muted">Разовая оплата на выбранный срок. Автоматических списаний нет.</div>
+    </header>
+
+    <div class="grid">
+      <main class="card">
+        <h2 style="font-size:20px; margin:0 0 12px;">Тарифы</h2>
+
+        <div class="plans">
+          <div class="plan">
+            <h2>Премиум 30 дней <span class="badge">старт</span></h2>
+            <div class="price">299 ₽ <span class="muted small">или 250 ⭐</span></div>
+            <div class="muted">
+              Самый короткий срок — попробовать премиум-функции на месяц.
+            </div>
+          </div>
+
+          <div class="plan">
+            <h2>Премиум 90 дней <span class="badge">3 месяца</span></h2>
+            <div class="price">749 ₽ <span class="muted small">(250 ₽/мес) или 625 ⭐</span> <span class="save">−16%</span></div>
+            <div class="muted">
+              Эквивалент 250 ₽/мес — на 16% выгоднее месячного тарифа.
+            </div>
+          </div>
+
+          <div class="plan">
+            <h2>Премиум 365 дней <span class="badge">год · самый выгодный</span></h2>
+            <div class="price">1990 ₽ <span class="muted small">(164 ₽/мес) или 1660 ⭐</span> <span class="save">−45%</span></div>
+            <div class="muted">
+              Меньше 165 ₽ в месяц — на 45% выгоднее месячного. Психологический барьер «под 2 000 ₽».
+            </div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 style="font-size:18px; margin:0 0 8px;">Что входит в премиум</h2>
+        <ul>
+          <li>📷 <strong>Фото блюда</strong> — автоматический подсчёт КБЖУ.</li>
+          <li>🎙 <strong>Голосовое сообщение</strong> — наговори, что съел, бот распознает и посчитает.</li>
+          <li>📊 <strong>Адаптивная цель</strong> — каждые 2 недели пересчитываю калораж по твоему реальному весу.</li>
+          <li>💡 <strong>Идеи на остаток дня</strong> — что съесть, чтобы добрать норму белка / не перебрать калории, с учётом нелюбимых продуктов.</li>
+          <li>📅 <strong>Воскресный отчёт</strong> — тренд веса, средние БЖУ за неделю, одна конкретная рекомендация.</li>
+        </ul>
+
+        <h2 style="font-size:18px; margin:18px 0 8px;">Бесплатно навсегда</h2>
+        <ul>
+          <li>⌨️ Запись еды текстом и подсчёт КБЖУ.</li>
+          <li>📊 Дневной счётчик и история приёмов пищи.</li>
+          <li>⚖️ Запись веса и графики.</li>
+          <li>❓ Вопросы по сегодняшнему дню («сколько мне ещё съесть на ужин?»).</li>
+          <li>🥦 Учёт пищевых предпочтений (<code>/preferences</code>).</li>
+          <li>✏️ Удаление и правка записей (<code>/edit</code>, <code>/undo</code>).</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2 style="font-size:18px; margin:0 0 8px;">Способы оплаты</h2>
+        <p class="muted">
+          Оплачивать удобнее всего <strong>прямо в боте</strong>: команда <code>/premium</code> покажет тарифы
+          и предложит две кнопки на каждый план — банковская карта (Robokassa) и ⭐ Telegram Stars.
+        </p>
+        <div class="pay">
+          <span class="pay-btn">💳 Карта (Robokassa)</span>
+          <span class="pay-btn">⭐ Telegram Stars</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://t.me/FoodSnapper_bot?start=premium" target="_blank" rel="noopener">Открыть бот и оформить</a>
+          <a class="btn btn-ghost" href="./cancel.html">Как отменить</a>
+        </div>
+
+        <div class="note">
+          После подтверждения оплаты доступ активируется автоматически и действует на выбранный срок.
+          По истечении срока премиум-функции отключаются — бесплатные функции остаются.
+          Автоматических списаний нет: чтобы продлить, оформи новую оплату через бот.
+        </div>
+      </main>
+
+      <aside class="card">
+        <h2 style="font-size:18px; margin:0 0 8px;">Документы</h2>
+        <ul>
+          <li><a href="offer.html">Публичная оферта</a></li>
+          <li><a href="privacy.html">Политика конфиденциальности</a></li>
+          <li><a href="cancel.html">Отмена подписки</a></li>
+          <li><a href="index.html">Главная страница</a></li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2 style="font-size:18px; margin:0 0 8px;">Поддержка</h2>
+        <p>
+          Email: <a href="mailto:foodsnapper@mail.ru">foodsnapper@mail.ru</a><br />
+          Бот: <a href="https://t.me/FoodSnapper_bot" target="_blank" rel="noopener">t.me/FoodSnapper_bot</a>
+        </p>
+
+        <div class="hr"></div>
+
+        <h2 style="font-size:18px; margin:0 0 8px;">Реквизиты</h2>
+        <p class="small muted">
+          ИП Шамсиев Ринат Альбертович<br />
+          ИНН: 590417211206<br />
+          ОГРНИП: 320595800057412
+        </p>
+      </aside>
+    </div>
+
+    <footer class="muted small">
+      © «ФудСнаппер»
+    </footer>
+  </div>
+</body>
+</html>
